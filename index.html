@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kaif Fashion</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#222;
+}
+
+header{
+  background:#111;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ff6b00;
+}
+
+nav button{
+  background:none;
+  border:0;
+  color:white;
+  margin-left:15px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+  background:linear-gradient(135deg,#111,#333);
+  color:white;
+}
+
+.hero h1{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:18px;
+  color:#ddd;
+  margin-bottom:25px;
+}
+
+.btn{
+  background:#ff6b00;
+  color:white;
+  border:none;
+  padding:13px 25px;
+  border-radius:7px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+section{
+  padding:55px 6%;
+}
+
+.title{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:35px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:18px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.price{
+  color:#ff6b00;
+  font-size:20px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.about{
+  background:white;
+  text-align:center;
+}
+
+.contact{
+  background:#111;
+  color:white;
+  text-align:center;
+}
+
+.contact p{
+  margin:12px;
+}
+
+footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:20px;
+}
+
+@media(max-width:600px){
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav button{
+    margin:5px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    KAIF <span>FASHION</span>
+  </div>
+
+  <nav>
+    <button onclick="goHome()">Home</button>
+    <button onclick="goProducts()">Products</button>
+    <button onclick="goAbout()">About</button>
+    <button onclick="goContact()">Contact</button>
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+
+  <div>
+
+    <h1>Style That Defines You</h1>
+
+    <p>
+      Discover premium fashion at affordable prices.
+    </p>
+
+    <button class="btn" onclick="goProducts()">
+      Shop Now
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+  <h2 class="title">Our Products</h2>
+
+  <div class="products">
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
+
+      <div class="card-content">
+
+        <h3>Premium T-Shirt</h3>
+
+        <p>Comfortable cotton t-shirt.</p>
+
+        <div class="price">৳850</div>
+
+        <button class="btn" onclick="order('Premium T-Shirt')">
+          Order Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80">
+
+      <div class="card-content">
+
+        <h3>Classic Jeans</h3>
+
+        <p>Stylish and comfortable jeans.</p>
+
+        <div class="price">৳1,500</div>
+
+        <button class="btn" onclick="order('Classic Jeans')">
+          Order Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
+
+      <div class="card-content">
+
+        <h3>Fashion Shoes</h3>
+
+        <p>Modern shoes for everyday style.</p>
+
+        <div class="price">৳1,800</div>
+
+        <button class="btn" onclick="order('Fashion Shoes')">
+          Order Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80">
+
+      <div class="card-content">
+
+        <h3>Premium Shirt</h3>
+
+        <p>Elegant shirt for every occasion.</p>
+
+        <div class="price">৳1,200</div>
+
+        <button class="btn" onclick="order('Premium Shirt')">
+          Order Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <h2 class="title">About Us</h2>
+
+  <p>
+    Kaif Fashion একটি modern fashion store।
+    আমরা quality products এবং affordable price দেওয়ার চেষ্টা করি।
+  </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <h2 class="title">Contact Us</h2>
+
+  <p>📞 Phone: 01850694903</p>
+
+  <p>💬 WhatsApp: 8801850694903</p>
+
+  <p>📍 Location:Bogura Shodor Ranaplaza</p>
+
+  <br>
+
+  <button class="btn" onclick="contactWhatsApp()">
+    WhatsApp Us
+  </button>
+
+</section>
+
+
+<footer>
+
+  © 2026 Kaif Fashion — All Rights Reserved
+
+</footer>
+
+
+<script>
+
+function goHome(){
+
+  document.getElementById("home")
+  .scrollIntoView({behavior:"smooth"});
+
+}
+
+
+function goProducts(){
+
+  document.getElementById("products")
+  .scrollIntoView({behavior:"smooth"});
+
+}
+
+
+function goAbout(){
+
+  document.getElementById("about")
+  .scrollIntoView({behavior:"smooth"});
+
+}
+
+
+function goContact(){
+
+  document.getElementById("contact")
+  .scrollIntoView({behavior:"smooth"});
+
+}
+
+
+function order(product){
+
+  alert(
+    "আপনি "+product+" অর্ডার করতে চাচ্ছেন।\n\n"+
+    "দয়া করে দোকানের WhatsApp/Phone নম্বরে যোগাযোগ করুন।"
+  );
+
+}
+
+
+function contactWhatsApp(){
+
+  let phone="8801850694903";
+
+  let message=
+    "Hello, I want to know about your products.";
+
+  window.open(
+    "https://wa.me/"+phone+
+    "?text="+encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
