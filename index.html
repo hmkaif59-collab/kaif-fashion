@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kaif Fashion</title>
+<title>WORLD MART - Online Shopping</title>
 
 <style>
 *{
@@ -20,145 +19,337 @@ body{
 }
 
 header{
-  background:#111;
+  background:#ff6b00;
   color:white;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  padding:15px;
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
+}
+
+.top{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
 .logo{
-  font-size:24px;
+  font-size:25px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.search{
+  flex:1;
+  display:flex;
+}
+
+.search input{
+  width:100%;
+  padding:12px;
+  border:none;
+  outline:none;
+  border-radius:6px 0 0 6px;
+  font-size:15px;
+}
+
+.search button{
+  border:none;
+  background:#222;
+  color:white;
+  padding:0 18px;
+  border-radius:0 6px 6px 0;
+}
+
+.cartBtn{
+  background:white;
+  color:#ff6b00;
+  border:none;
+  padding:11px 15px;
+  border-radius:6px;
   font-weight:bold;
 }
 
-.logo span{
-  color:#ff6b00;
+.categories{
+  max-width:1200px;
+  margin:15px auto;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:5px;
 }
 
-nav button{
-  background:none;
-  border:0;
-  color:white;
-  margin-left:15px;
-  font-size:15px;
+.categories button{
+  border:1px solid #ddd;
+  background:white;
+  padding:10px 18px;
+  border-radius:20px;
+  white-space:nowrap;
   cursor:pointer;
 }
 
+.categories button.active,
+.categories button:hover{
+  background:#ff6b00;
+  color:white;
+}
+
 .hero{
-  min-height:500px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px;
-  background:linear-gradient(135deg,#111,#333);
+  max-width:1200px;
+  margin:15px auto;
+  padding:35px 25px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#ff6b00,#ff9d42);
   color:white;
 }
 
 .hero h1{
-  font-size:45px;
-  margin-bottom:15px;
+  font-size:35px;
+  margin-bottom:10px;
 }
 
 .hero p{
-  font-size:18px;
-  color:#ddd;
-  margin-bottom:25px;
+  font-size:17px;
 }
 
-.btn{
-  background:#ff6b00;
-  color:white;
-  border:none;
-  padding:13px 25px;
-  border-radius:7px;
-  cursor:pointer;
-  font-size:16px;
-}
-
-section{
-  padding:55px 6%;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:10px;
 }
 
 .title{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:35px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:20px 0;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
 .card{
   background:white;
-  border-radius:12px;
+  border-radius:10px;
   overflow:hidden;
-  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
 }
 
 .card img{
   width:100%;
-  height:230px;
+  height:210px;
   object-fit:cover;
 }
 
-.card-content{
-  padding:18px;
+.cardBody{
+  padding:12px;
 }
 
 .card h3{
+  font-size:16px;
   margin-bottom:8px;
 }
 
 .price{
-  color:#ff6b00;
-  font-size:20px;
+  color:#ff5500;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.old{
+  color:#999;
+  text-decoration:line-through;
+  font-size:13px;
+  margin-left:5px;
+}
+
+.view{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#ff6b00;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:2000;
+  padding:20px;
+  overflow:auto;
+}
+
+.modalBox{
+  background:white;
+  max-width:600px;
+  margin:30px auto;
+  border-radius:12px;
+  padding:20px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.modalBox img{
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.modalBox h2{
+  margin:15px 0 8px;
+}
+
+.modalPrice{
+  color:#ff5500;
+  font-size:25px;
   font-weight:bold;
   margin:10px 0;
 }
 
-.about{
-  background:white;
-  text-align:center;
+select,
+.qty{
+  width:100%;
+  padding:11px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:6px;
 }
 
-.contact{
-  background:#111;
+.add{
+  width:100%;
+  padding:13px;
+  border:none;
+  background:#ff6b00;
   color:white;
-  text-align:center;
+  border-radius:7px;
+  font-size:16px;
+  font-weight:bold;
+  margin-top:8px;
 }
 
-.contact p{
-  margin:12px;
+.cartItem{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.cartItem img{
+  width:75px;
+  height:75px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.remove{
+  margin-left:auto;
+  background:#e53935;
+  color:white;
+  border:none;
+  padding:7px 10px;
+  border-radius:5px;
+}
+
+.total{
+  font-size:22px;
+  font-weight:bold;
+  margin-top:20px;
+  color:#ff5500;
+}
+
+.orderBtn{
+  width:100%;
+  padding:13px;
+  background:#25d366;
+  color:white;
+  border:none;
+  border-radius:7px;
+  margin-top:15px;
+  font-size:16px;
+  font-weight:bold;
 }
 
 footer{
-  background:#000;
-  color:#aaa;
+  margin-top:40px;
+  background:#222;
+  color:white;
   text-align:center;
-  padding:20px;
+  padding:30px 15px;
 }
 
-@media(max-width:600px){
-  header{
-    flex-direction:column;
-    gap:12px;
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .top{
+    flex-wrap:wrap;
   }
 
-  nav button{
-    margin:5px;
+  .logo{
+    width:100%;
+    text-align:center;
+  }
+
+  .search{
+    order:2;
+    width:100%;
+  }
+
+  .cartBtn{
+    position:absolute;
+    right:10px;
+    top:48px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .card img{
+    height:170px;
   }
 
   .hero h1{
-    font-size:34px;
+    font-size:27px;
+  }
+}
+
+@media(max-width:380px){
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .card img{
+    height:145px;
   }
 }
 </style>
@@ -167,238 +358,654 @@ footer{
 <body>
 
 <header>
+  <div class="top">
+    <div class="logo">🌍 WORLD MART</div>
 
-  <div class="logo">
-    KAIF <span>FASHION</span>
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Search products...">
+      <button onclick="searchProducts()">🔍</button>
+    </div>
+
+    <button class="cartBtn" onclick="openCart()">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </button>
   </div>
-
-  <nav>
-    <button onclick="goHome()">Home</button>
-    <button onclick="goProducts()">Products</button>
-    <button onclick="goAbout()">About</button>
-    <button onclick="goContact()">Contact</button>
-  </nav>
-
 </header>
 
+<div class="categories">
+  <button class="active" onclick="filterCategory('All',this)">All</button>
+  <button onclick="filterCategory('T-Shirt',this)">T-Shirt</button>
+  <button onclick="filterCategory('Shirt',this)">Shirt</button>
+  <button onclick="filterCategory('Jeans',this)">Jeans</button>
+  <button onclick="filterCategory('Shoes',this)">Shoes</button>
+  <button onclick="filterCategory('Watch',this)">Watch</button>
+  <button onclick="filterCategory('Bag',this)">Bag</button>
+</div>
 
-<!-- HERO -->
+<section class="hero">
+  <h1>Shop Everything You Love 🛍️</h1>
+  <p>Fashion, Shoes, Watches, Bags and more — all in one place.</p>
+</section>
 
-<div class="hero" id="home">
+<div class="container">
 
-  <div>
-
-    <h1>Style That Defines You</h1>
-
-    <p>
-      Discover premium fashion at affordable prices.
-    </p>
-
-    <button class="btn" onclick="goProducts()">
-      Shop Now
-    </button>
-
+  <div class="title">
+    <h2 id="productTitle">All Products</h2>
   </div>
+
+  <div id="products" class="products"></div>
 
 </div>
 
-
-<!-- PRODUCTS -->
-
-<section id="products">
-
-  <h2 class="title">Our Products</h2>
-
-  <div class="products">
-
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
-
-      <div class="card-content">
-
-        <h3>Premium T-Shirt</h3>
-
-        <p>Comfortable cotton t-shirt.</p>
-
-        <div class="price">৳850</div>
-
-        <button class="btn" onclick="order('Premium T-Shirt')">
-          Order Now
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80">
-
-      <div class="card-content">
-
-        <h3>Classic Jeans</h3>
-
-        <p>Stylish and comfortable jeans.</p>
-
-        <div class="price">৳1,500</div>
-
-        <button class="btn" onclick="order('Classic Jeans')">
-          Order Now
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
-
-      <div class="card-content">
-
-        <h3>Fashion Shoes</h3>
-
-        <p>Modern shoes for everyday style.</p>
-
-        <div class="price">৳1,800</div>
-
-        <button class="btn" onclick="order('Fashion Shoes')">
-          Order Now
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80">
-
-      <div class="card-content">
-
-        <h3>Premium Shirt</h3>
-
-        <p>Elegant shirt for every occasion.</p>
-
-        <div class="price">৳1,200</div>
-
-        <button class="btn" onclick="order('Premium Shirt')">
-          Order Now
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
-  <h2 class="title">About Us</h2>
-
-  <p>
-    Kaif Fashion একটি modern fashion store।
-    আমরা quality products এবং affordable price দেওয়ার চেষ্টা করি।
-  </p>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-  <h2 class="title">Contact Us</h2>
-
-  <p>📞 Phone: 01850694903</p>
-
-  <p>💬 WhatsApp: 8801850694903</p>
-
-  <p>📍 Location:Bogura Shodor Ranaplaza</p>
-
-  <br>
-
-  <button class="btn" onclick="contactWhatsApp()">
-    WhatsApp Us
-  </button>
-
-</section>
-
-
 <footer>
-
-  © 2026 Kaif Fashion — All Rights Reserved
-
+  <h2>🌍 WORLD MART</h2>
+  <p>Everything You Need, All in One Place.</p>
+  <br>
+  <p>© 2026 WORLD MART. All Rights Reserved.</p>
 </footer>
 
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+  <div class="modalBox">
+    <span class="close" onclick="closeProduct()">×</span>
+
+    <img id="modalImg">
+
+    <h2 id="modalName"></h2>
+
+    <div class="modalPrice" id="modalPrice"></div>
+
+    <p id="modalDesc"></p>
+
+    <label>Choose Size</label>
+    <select id="size">
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Large</option>
+      <option>XL</option>
+      <option>XXL</option>
+    </select>
+
+    <label>Quantity</label>
+    <input class="qty" id="quantity" type="number" value="1" min="1">
+
+    <button class="add" onclick="addToCart()">
+      🛒 Add to Cart
+    </button>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+  <div class="modalBox">
+    <span class="close" onclick="closeCart()">×</span>
+
+    <h2>🛒 My Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      Total: ৳<span id="cartTotal">0</span>
+    </div>
+
+    <button class="orderBtn" onclick="placeOrder()">
+      📦 Place Order
+    </button>
+  </div>
+</div>
 
 <script>
 
-function goHome(){
+const products = [
 
-  document.getElementById("home")
-  .scrollIntoView({behavior:"smooth"});
+/* T-SHIRTS */
+
+{
+ id:1,
+ category:"T-Shirt",
+ name:"Black Premium T-Shirt",
+ price:650,
+ img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
+ desc:"Premium comfortable black T-shirt for everyday fashion."
+},
+
+{
+ id:2,
+ category:"T-Shirt",
+ name:"White Classic T-Shirt",
+ price:720,
+ img:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=700&q=80",
+ desc:"Clean and classic white T-shirt."
+},
+
+{
+ id:3,
+ category:"T-Shirt",
+ name:"Blue Fashion T-Shirt",
+ price:780,
+ img:"https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=700&q=80",
+ desc:"Stylish blue T-shirt for casual outfits."
+},
+
+{
+ id:4,
+ category:"T-Shirt",
+ name:"Oversized Street T-Shirt",
+ price:850,
+ img:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80",
+ desc:"Modern oversized streetwear T-shirt."
+},
+
+{
+ id:5,
+ category:"T-Shirt",
+ name:"Green Casual T-Shirt",
+ price:680,
+ img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80",
+ desc:"Comfortable green casual T-shirt."
+},
+
+{
+ id:6,
+ category:"T-Shirt",
+ name:"Premium Graphic T-Shirt",
+ price:920,
+ img:"https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80",
+ desc:"Graphic fashion T-shirt with premium look."
+},
+
+/* SHIRTS */
+
+{
+ id:7,
+ category:"Shirt",
+ name:"White Formal Shirt",
+ price:900,
+ img:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80",
+ desc:"Smart white formal shirt."
+},
+
+{
+ id:8,
+ category:"Shirt",
+ name:"Black Formal Shirt",
+ price:950,
+ img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80",
+ desc:"Elegant black formal shirt."
+},
+
+{
+ id:9,
+ category:"Shirt",
+ name:"Blue Casual Shirt",
+ price:850,
+ img:"https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=80",
+ desc:"Stylish blue casual shirt."
+},
+
+{
+ id:10,
+ category:"Shirt",
+ name:"Checked Shirt",
+ price:930,
+ img:"https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=700&q=80",
+ desc:"Classic checked shirt for casual wear."
+},
+
+{
+ id:11,
+ category:"Shirt",
+ name:"Denim Shirt",
+ price:990,
+ img:"https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=80",
+ desc:"Trendy denim shirt."
+},
+
+{
+ id:12,
+ category:"Shirt",
+ name:"Casual Green Shirt",
+ price:880,
+ img:"https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?auto=format&fit=crop&w=700&q=80",
+ desc:"Comfortable green casual shirt."
+},
+
+/* JEANS */
+
+{
+ id:13,
+ category:"Jeans",
+ name:"Classic Blue Jeans",
+ price:950,
+ img:"https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80",
+ desc:"Classic blue denim jeans."
+},
+
+{
+ id:14,
+ category:"Jeans",
+ name:"Black Slim Jeans",
+ price:990,
+ img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80",
+ desc:"Modern black slim-fit jeans."
+},
+
+{
+ id:15,
+ category:"Jeans",
+ name:"Light Blue Jeans",
+ price:880,
+ img:"https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=700&q=80",
+ desc:"Light blue casual jeans."
+},
+
+{
+ id:16,
+ category:"Jeans",
+ name:"Dark Blue Jeans",
+ price:970,
+ img:"https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=700&q=80",
+ desc:"Premium dark blue jeans."
+},
+
+{
+ id:17,
+ category:"Jeans",
+ name:"Baggy Jeans",
+ price:920,
+ img:"https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=700&q=80",
+ desc:"Loose baggy style jeans."
+},
+
+{
+ id:18,
+ category:"Jeans",
+ name:"Street Style Jeans",
+ price:860,
+ img:"https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?auto=format&fit=crop&w=700&q=80",
+ desc:"Trendy street fashion jeans."
+},
+
+/* SHOES */
+
+{
+ id:19,
+ category:"Shoes",
+ name:"White Sneakers",
+ price:950,
+ img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+ desc:"Clean white sneakers for daily use."
+},
+
+{
+ id:20,
+ category:"Shoes",
+ name:"Black Sneakers",
+ price:900,
+ img:"https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80",
+ desc:"Classic black sneakers."
+},
+
+{
+ id:21,
+ category:"Shoes",
+ name:"Sport Shoes",
+ price:980,
+ img:"https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=700&q=80",
+ desc:"Comfortable sports shoes."
+},
+
+{
+ id:22,
+ category:"Shoes",
+ name:"Running Shoes",
+ price:890,
+ img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80",
+ desc:"Lightweight running shoes."
+},
+
+/* WATCH */
+
+{
+ id:23,
+ category:"Watch",
+ name:"Classic Black Watch",
+ price:850,
+ img:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80",
+ desc:"Classic stylish black watch."
+},
+
+{
+ id:24,
+ category:"Watch",
+ name:"Silver Watch",
+ price:980,
+ img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80",
+ desc:"Premium silver fashion watch."
+},
+
+/* BAG */
+
+{
+ id:25,
+ category:"Bag",
+ name:"Black Backpack",
+ price:750,
+ img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80",
+ desc:"Useful black backpack for everyday use."
+},
+
+{
+ id:26,
+ category:"Bag",
+ name:"Travel Backpack",
+ price:950,
+ img:"https://images.unsplash.com/photo-1556306535-0f09a537f0a3?auto=format&fit=crop&w=700&q=80",
+ desc:"Large travel backpack."
+}
+
+];
+
+let currentProducts = products;
+let selectedProduct = null;
+let cart = [];
+
+/* SHOW PRODUCTS */
+
+function showProducts(list){
+
+  const box = document.getElementById("products");
+
+  box.innerHTML="";
+
+  if(list.length===0){
+    box.innerHTML="<h3>No products found.</h3>";
+    return;
+  }
+
+  list.forEach(p=>{
+
+    box.innerHTML += `
+
+      <div class="card" onclick="openProduct(${p.id})">
+
+        <img src="${p.img}" alt="${p.name}">
+
+        <div class="cardBody">
+
+          <h3>${p.name}</h3>
+
+          <div class="price">
+            ৳${p.price}
+          </div>
+
+          <button class="view" onclick="event.stopPropagation();openProduct(${p.id})">
+            View Product
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
 
 }
 
+/* CATEGORY */
 
-function goProducts(){
+function filterCategory(category,button){
 
-  document.getElementById("products")
-  .scrollIntoView({behavior:"smooth"});
+  document.querySelectorAll(".categories button")
+  .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  if(category==="All"){
+    currentProducts=products;
+    document.getElementById("productTitle").innerText="All Products";
+  }else{
+
+    currentProducts=products.filter(
+      p=>p.category===category
+    );
+
+    document.getElementById("productTitle").innerText=
+      category+" Collection";
+  }
+
+  showProducts(currentProducts);
+}
+
+/* SEARCH */
+
+function searchProducts(){
+
+  const text=document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  const result=products.filter(p=>
+    p.name.toLowerCase().includes(text) ||
+    p.category.toLowerCase().includes(text)
+  );
+
+  currentProducts=result;
+
+  document.getElementById("productTitle").innerText=
+    "Search Results";
+
+  showProducts(result);
+}
+
+document.getElementById("searchInput")
+.addEventListener("keyup",function(){
+
+  if(this.value===""){
+    showProducts(products);
+  }else{
+    searchProducts();
+  }
+
+});
+
+/* PRODUCT MODAL */
+
+function openProduct(id){
+
+  selectedProduct=
+    products.find(p=>p.id===id);
+
+  document.getElementById("modalImg").src=
+    selectedProduct.img;
+
+  document.getElementById("modalName").innerText=
+    selectedProduct.name;
+
+  document.getElementById("modalPrice").innerText=
+    "৳"+selectedProduct.price;
+
+  document.getElementById("modalDesc").innerText=
+    selectedProduct.desc;
+
+  document.getElementById("quantity").value=1;
+
+  document.getElementById("productModal").style.display="block";
+}
+
+function closeProduct(){
+
+  document.getElementById("productModal")
+  .style.display="none";
+}
+
+/* ADD CART */
+
+function addToCart(){
+
+  const quantity=
+    parseInt(document.getElementById("quantity").value);
+
+  const size=
+    document.getElementById("size").value;
+
+  cart.push({
+
+    ...selectedProduct,
+
+    quantity:quantity,
+
+    size:size
+
+  });
+
+  updateCartCount();
+
+  closeProduct();
+
+  alert("✅ Product added to cart!");
 
 }
 
+/* CART COUNT */
 
-function goAbout(){
+function updateCartCount(){
 
-  document.getElementById("about")
-  .scrollIntoView({behavior:"smooth"});
+  let count=0;
 
+  cart.forEach(item=>{
+    count+=item.quantity;
+  });
+
+  document.getElementById("cartCount")
+  .innerText=count;
 }
 
+/* OPEN CART */
 
-function goContact(){
+function openCart(){
 
-  document.getElementById("contact")
-  .scrollIntoView({behavior:"smooth"});
+  const box=
+    document.getElementById("cartItems");
 
+  box.innerHTML="";
+
+  if(cart.length===0){
+
+    box.innerHTML=
+      "<p style='margin-top:20px'>Your cart is empty.</p>";
+
+  }else{
+
+    cart.forEach((item,index)=>{
+
+      box.innerHTML += `
+
+        <div class="cartItem">
+
+          <img src="${item.img}">
+
+          <div>
+
+            <b>${item.name}</b>
+
+            <p>Size: ${item.size}</p>
+
+            <p>Quantity: ${item.quantity}</p>
+
+            <b>৳${item.price * item.quantity}</b>
+
+          </div>
+
+          <button
+            class="remove"
+            onclick="removeCart(${index})">
+            Remove
+          </button>
+
+        </div>
+
+      `;
+
+    });
+
+  }
+
+  let total=0;
+
+  cart.forEach(item=>{
+    total+=item.price*item.quantity;
+  });
+
+  document.getElementById("cartTotal")
+  .innerText=total;
+
+  document.getElementById("cartModal")
+  .style.display="block";
 }
 
+/* REMOVE */
 
-function order(product){
+function removeCart(index){
+
+  cart.splice(index,1);
+
+  updateCartCount();
+
+  openCart();
+}
+
+/* CLOSE CART */
+
+function closeCart(){
+
+  document.getElementById("cartModal")
+  .style.display="none";
+}
+
+/* ORDER */
+
+function placeOrder(){
+
+  if(cart.length===0){
+
+    alert("Your cart is empty!");
+
+    return;
+  }
 
   alert(
-    "আপনি "+product+" অর্ডার করতে চাচ্ছেন।\n\n"+
-    "দয়া করে দোকানের WhatsApp/Phone নম্বরে যোগাযোগ করুন।"
+    "🎉 Order system is ready!\n\n" +
+    "Next step: Customer name, address, phone number and payment system will be added."
   );
 
 }
 
+/* CLOSE WHEN CLICK OUTSIDE */
 
-function contactWhatsApp(){
+window.onclick=function(event){
 
-  let phone="8801850694903";
+  if(event.target===
+    document.getElementById("productModal")){
 
-  let message=
-    "Hello, I want to know about your products.";
+    closeProduct();
 
-  window.open(
-    "https://wa.me/"+phone+
-    "?text="+encodeURIComponent(message),
-    "_blank"
-  );
+  }
 
-}
+  if(event.target===
+    document.getElementById("cartModal")){
+
+    closeCart();
+
+  }
+
+};
+
+/* START */
+
+showProducts(products);
 
 </script>
 
